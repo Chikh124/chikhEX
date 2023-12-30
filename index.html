@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    td {
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    td.red {
+      background-color: red;
+    }
+  </style>
+  <title>Chikh R</title>
+</head>
+<body>
+
+<table>
+  <tr>
+    <td>25</td><td>11</td><td>8</td>
+  </tr>
+  <tr>
+    <td>54</td><td>13</td><td>22</td>
+  </tr>
+  <tr>
+    <td>15</td><td>23</td><td>6</td>
+  </tr>
+</table>
+<button onclick="findMaxCell()">Enter</button>
+
+<script>
+  function findMaxCell() {
+    var table = document.querySelector('table');
+    var rows = table.rows;
+
+    var maxNumber = -Infinity;
+    var maxCell;
+
+    for (var i = 0; i < rows.length; i++) {
+      var cells = rows[i].cells;
+
+      for (var j = 0; j < cells.length; j++) {
+        var cellValue = parseInt(cells[j].innerText);
+
+        if (cellValue > maxNumber) {
+          maxNumber = cellValue;
+          maxCell = cells[j];
+        }
+      }
+    }
+
+    maxCell.classList.add('red');
+  }
+</script>
+
+</body>
+</html>
